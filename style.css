@@ -16,28 +16,40 @@ body{
 
 .container{
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     max-width: var(--maxwidth);
-    justify-content: center;
     margin: 3rem auto;
 }
 
 header{
-    
     border: 0.1rem solid var(--grey);
     width: 100%;
 }
+    header h1{
+        text-transform: uppercase;
+        color: var(--darkgrey);
+        padding: 2rem;
+    }
 
-header h1{
-    text-transform: uppercase;
-    color: var(--darkgrey);
-    padding: 2rem;
-}
 nav{
-
+    width: 100%;
+    display: flex;
+    padding-top: 1rem;
 }
+    nav ul{
+        padding: 0;
+    }
+    nav ul li{
+        color:var(--darkgrey);
+        display: inline-block;
+        text-transform: uppercase;
+        border: 0.1rem solid var(--grey);
+        padding: 1rem;
+    }
+
 main{
     border: 0.1rem solid var(--grey);
     width: 100%;
+    border-top: 5px solid var(--aqua);
+    color: var(--white);
+    
 }
