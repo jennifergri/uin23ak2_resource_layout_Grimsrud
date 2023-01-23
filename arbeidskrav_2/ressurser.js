@@ -95,5 +95,19 @@ const resources = [
     },
 ]
 
+//Inspirasjon av Legodudes kode fra forelesning 20 jan - oppgave 4.
 function addHTML(){
+    let categoryInfo = ""
+    resources.map(info => {
+        categoryInfo += `
+        <h2>${info.category}</h2>
+        <p>${info.text}</p>
+        <ul>
+            <li><a href="${info.sources.url}">${info.sources.title}</a></li>
+            <li><a href="${info.sources.url}">${info.sources.title}</a></li>
+            <li><a href="${info.sources.url}">${info.sources.title}</a></li>
+        </ul>
+        `
+    })
+    document.getElementById("informasjon").innerHTML = categoryInfo
 }
