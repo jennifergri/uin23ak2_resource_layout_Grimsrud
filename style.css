@@ -23,6 +23,7 @@ body{
 header{
     border: 0.1rem solid var(--grey);
     width: 100%;
+    box-sizing: border-box;
 }
     header h1{
         text-transform: uppercase;
@@ -54,5 +55,7 @@ main{
     border: 0.1rem solid var(--grey);
     width: 100%;
     border-top: 5px solid var(--aqua);
-    color: var(--white);
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    color: var(--darkgrey);
 }

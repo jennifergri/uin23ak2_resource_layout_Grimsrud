@@ -94,3 +94,6 @@ const resources = [
         ]
     },
 ]
+
+function addHTML(){
+}
