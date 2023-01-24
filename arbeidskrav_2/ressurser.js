@@ -94,29 +94,46 @@ const resources = [
         ]
     },
 ]
-let navigasjon = ""
-resources.map(nav => {
-    navigasjon += `<button class="HTML" onclick="addSources()">${nav.category}</button>`
-})
-document.getElementById("nav").innerHTML = navigasjon
+
 
 //Inspirasjon av Legodudes kode fra forelesning 20 jan - oppgave 4.
-function addSources(){
-    let categoryInfo = ""
-    resources.map(info => {
-        categoryInfo += `
-            <h2>${info.category}</h2>
-            <p>${info.text}</p>
-            `
+//Inspirasjon min eksamensinnlevering i innprog - minstekrav 2
 
-        let links = ""
-        info.sources.map(link => {
-            links += `<ul><li><a href="${link.url}">${link.title}</a></li>`
-            links += `</ul>`
-        })
-        document.getElementById("links").innerHTML = links
-    
-    })
-    document.getElementById("informasjon").innerHTML = categoryInfo
+const button = document.getElementById("button")
 
+function colorButton(){
+    if (button.classList.contains("active")){
+        button.classList.add("active")
+        document.getElementById("button").style.backgroundColor = '#fff';
+    } else {
+        button.classList.remove("active")
+    }
 }
+
+let navigasjon = ""
+let categoryInfo = ""
+
+resources.map(info => {
+    navigasjon += `<button id="button" onclick="addSources()">${info.category}</button>`
+    categoryInfo += `
+        <h2>${info.category}</h2>
+        <p>${info.text}</p>
+        `
+    
+    let links = ""
+
+    function addSources(array){
+        array.map(link => {
+            links += `<li><a href="${link.url}">${link.title}</a></li>`
+        })
+        return links
+    }
+    
+    categoryInfo += `<ul>${addSources(info.sources)}</ul>`
+    
+})
+
+document.getElementById("nav").innerHTML = navigasjon
+document.getElementById("informasjon").innerHTML = categoryInfo
+    
+
