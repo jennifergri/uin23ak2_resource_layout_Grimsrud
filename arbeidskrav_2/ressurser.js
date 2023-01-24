@@ -94,20 +94,29 @@ const resources = [
         ]
     },
 ]
+let navigasjon = ""
+resources.map(nav => {
+    navigasjon += `<button class="HTML" onclick="addSources()">${nav.category}</button>`
+})
+document.getElementById("nav").innerHTML = navigasjon
 
 //Inspirasjon av Legodudes kode fra forelesning 20 jan - oppgave 4.
-function addHTML(){
+function addSources(){
     let categoryInfo = ""
     resources.map(info => {
         categoryInfo += `
-        <h2>${info.category}</h2>
-        <p>${info.text}</p>
-        <ul>
-            <li><a href="${info.sources.url}">${info.sources.title}</a></li>
-            <li><a href="${info.sources.url}">${info.sources.title}</a></li>
-            <li><a href="${info.sources.url}">${info.sources.title}</a></li>
-        </ul>
-        `
+            <h2>${info.category}</h2>
+            <p>${info.text}</p>
+            `
+
+        let links = ""
+        info.sources.map(link => {
+            links += `<ul><li><a href="${link.url}">${link.title}</a></li>`
+            links += `</ul>`
+        })
+        document.getElementById("links").innerHTML = links
+    
     })
     document.getElementById("informasjon").innerHTML = categoryInfo
+
 }
