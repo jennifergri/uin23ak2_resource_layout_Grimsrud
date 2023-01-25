@@ -111,29 +111,39 @@ function colorButton(){
 }
 
 let navigasjon = ""
-let categoryInfo = ""
 
-resources.map(info => {
-    navigasjon += `<button id="button" onclick="addSources()">${info.category}</button>`
-    categoryInfo += `
-        <h2>${info.category}</h2>
-        <p>${info.text}</p>
-        `
-    
-    let links = ""
-
-    function addSources(array){
-        array.map(link => {
-            links += `<li><a href="${link.url}">${link.title}</a></li>`
-        })
-        return links
-    }
-    
-    categoryInfo += `<ul>${addSources(info.sources)}</ul>`
-    
-})
-
+function addNav(){
+    resources.map((info, index) => {
+        navigasjon += `<button id=${index} onClick="addSources(${index})">${info.category}</button>`
+    })
+}
+addNav()
 document.getElementById("nav").innerHTML = navigasjon
-document.getElementById("informasjon").innerHTML = categoryInfo
+
+
+let categoryInfo = ""
+let links = ""
+function addSources(index){
+    links = ""
+    categoryInfo = ""
+        categoryInfo += `
+        <h2>${resources[index].category}</h2>
+        <p>${resources[index].text}</p>
+        `
+        
+        resources[index].sources.map(element => {
+            links += `<li><a href="${element.url}">${element.title}</a></li>`
+            console.log(element)
+        })
+    
+    document.getElementById("informasjon").innerHTML = categoryInfo
+    document.getElementById("linker").innerHTML = links
+
+    console.log(links)
+}
+
+
+
+
     
 
