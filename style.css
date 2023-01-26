@@ -35,7 +35,7 @@ header{
 nav{
     width: 100%;
     display: flex;
-    padding-top: 1rem;
+    padding-top: 2rem;
     gap: 0.8rem;
 } 
     nav button{
@@ -64,6 +64,15 @@ main{
     main ul li a{
         color: var(--aqua);
     }
+    main h2{
+        text-transform: uppercase;
+    }
 
 
 /*Responsiv nettside*/
+@media only screen and (max-width: 600px){
+    nav{
+        display: flex;
+        flex-direction: column;
+    }
+}
