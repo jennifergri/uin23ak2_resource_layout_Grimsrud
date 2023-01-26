@@ -2,9 +2,6 @@
 //Inspirasjon min eksamensinnlevering i innprog - minstekrav 2
 //Hjelp av studass
 
-
-//Ville ha main på forsiden tom når siden oppdateres!
-
 //Navigasjon:
 let menu = ""
 
